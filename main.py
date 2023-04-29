@@ -26,12 +26,18 @@ def fonction_libssl():
     if not os.path.exists(altv_libs_dir):
         print("Le dossier libs n'existe pas dans le répertoire alt:v,vous avez surement sélectionné le mauvais dossier")
         exit()
-# On copie les ddl corrigeant le problème dans le dossier libs de alt:v
+    # On vérifie l'existence des fichiers
+    libssl_path = os.path.join(altv_libs_dir, "libssl-1_1-x64.dll")
+    libcrypto_path = os.path.join(altv_libs_dir, "libcrypto-1_1-x64.dll")
+    if os.path.exists(libssl_path) and os.path.exists(libcrypto_path):
+        print("Les dll sont déjà présent")
+        return
+    # On copie les fichiers dll si nécessaire
     for file_name in os.listdir(libs_dir):
         file_path = os.path.join(libs_dir, file_name)
         if os.path.isfile(file_path):
             shutil.copy(file_path, altv_libs_dir)
-    print("Opération fini avec succès")
+    print("Opération finie avec succès.")
 
 def fonction_saltychat():
 # Chemin absolu du dossier des plugins de TeamSpeak
@@ -39,6 +45,14 @@ def fonction_saltychat():
 
 # Chemin absolu du dossier SaltyChat dans le dossier plugins
     saltychat_dir = os.path.join(os.getcwd(), "plugins", "SaltyChat")
+
+# Vérification si les fichiers/dossiers existent et suppression si nécessaire
+    if os.path.exists(os.path.join(ts3_plugins_dir, "SaltyChat_win64.dll")):
+        os.remove(os.path.join(ts3_plugins_dir, "SaltyChat_win64.dll"))
+    if os.path.exists(os.path.join(ts3_plugins_dir, "SaltyChat_win32.dll")):
+        os.remove(os.path.join(ts3_plugins_dir, "SaltyChat_win32.dll"))
+    if os.path.exists(os.path.join(ts3_plugins_dir, "SaltyChat")):
+        shutil.rmtree(os.path.join(ts3_plugins_dir, "SaltyChat"))
 
 # Copie du dossier SaltyChat dans le dossier des plugins de TeamSpeak
     try:
