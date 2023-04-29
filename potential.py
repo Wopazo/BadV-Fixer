@@ -114,7 +114,12 @@ while True:
         print(f"{i+1}. {option.__name__}")
         
     touche = input()
+# On laisse la posibilité à l'utilisateur de quitter le logiciel
     if touche == "q":
+        break
+    if touche == "quit":
+        break
+    if touche == "exit":
         break
     elif touche.isdigit():
         choix = int(touche) - 1
