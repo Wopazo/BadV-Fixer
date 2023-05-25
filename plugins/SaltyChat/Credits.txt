@@ -1,0 +1,9 @@
+Salty Chat is using code from the following open source projects:
+Newtonsoft.Json - https://github.com/JamesNK/Newtonsoft.Json
+RadioFX - https://github.com/thorwe/teamspeak-plugin-radiofx
+
+Sounds in the default sound pack were made by BeatbaronTV (https://www.twitch.tv/beatbarontv || https://twitter.com/BeatbaronTV)
+
+Salty Chat is developed by Timm "Black Flash" Gasteier - saltmine.de
+Join our Discord for more information, or if you have any questions/issues.
+https://discord.gg/MBCnqSf
